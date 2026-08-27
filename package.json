@@ -7,7 +7,7 @@
     "test": "node --test tests/*.test.cjs",
     "check": "node tools/validate-project.mjs",
     "preview": "aix preview ./src --dev",
-    "pack": "aix pack ./src --output ./dist/aiui-speech-recognition-lifecycle-repro.aix",
+    "pack": "mkdir -p ./dist && aix pack ./src -o ./dist/aiui-speech-recognition-lifecycle-repro.aix",
     "evidence:capture": "bash tools/capture-device-evidence.sh",
     "evidence:extract": "node tools/extract-public-evidence.mjs"
   },
@@ -15,4 +15,3 @@
     "@yodaos-pkg/aix-cli": "0.8.2"
   }
 }
-

@@ -64,6 +64,7 @@ npm run evidence:extract -- \
 - [问题反馈](docs/issue-report.zh-CN.md)
 - [复现协议](docs/reproduction-protocol.md)
 - [证据采集与脱敏](docs/evidence-guide.md)
+- [初始真机环境](evidence/public/2026-08-27-device-environment.md)
 - [官方修复后的验收清单](docs/fix-verification-checklist.md)
 - [后续文章与教程提纲](docs/article-outline.md)
 - [English summary](README.en.md)

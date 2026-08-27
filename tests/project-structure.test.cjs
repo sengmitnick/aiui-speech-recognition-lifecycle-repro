@@ -2,6 +2,7 @@ const test = require('node:test');
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
+const { execFileSync } = require('node:child_process');
 
 const ROOT = path.join(__dirname, '..');
 
@@ -49,4 +50,14 @@ test('page uses a supported high-contrast border-only diagnostic UI', () => {
   assert.doesNotMatch(source, /box-shadow|text-shadow|drop-shadow/);
   assert.doesNotMatch(source, /background-color:\s*var\(--color-primary\)/);
   assert.doesNotMatch(source, /[🌀-🫿]/u);
+});
+
+test('project validator accepts the standalone Craft source', () => {
+  const validator = path.join(ROOT, 'tools/validate-project.mjs');
+  assert.ok(fs.existsSync(validator), 'tools/validate-project.mjs should exist');
+  const output = execFileSync(process.execPath, [validator], {
+    cwd: ROOT,
+    encoding: 'utf8',
+  });
+  assert.match(output, /Craft source validation passed/);
 });
