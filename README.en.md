@@ -2,6 +2,8 @@
 
 This is a small, public Rokid AIUI project for observing the native `SpeechRecognition` lifecycle across natural pauses and repeated `start()` calls after `onend`.
 
+Repository: <https://github.com/sengmitnick/aiui-speech-recognition-lifecycle-repro>
+
 **Status: awaiting official confirmation.** The repository distinguishes observed behavior from hypotheses about runtime internals.
 
 ## Import into Craft

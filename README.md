@@ -2,6 +2,8 @@
 
 一个面向 Rokid AIUI 真机的公开最小案例，用来观察 `SpeechRecognition` 在自然停顿、`onend` 后自动再次 `start()` 以及连续页面使用场景中的生命周期行为。
 
+GitHub：<https://github.com/sengmitnick/aiui-speech-recognition-lifecycle-repro>
+
 > 项目状态：待官方确认
 
 本项目只记录应用能够观察到的事实，不把尚未获得运行时内部证据的现象写成已确认根因。
