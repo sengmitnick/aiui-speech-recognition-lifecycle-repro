@@ -33,7 +33,7 @@ npm run evidence:extract -- \
   evidence/private/<capture>/device-info.txt
 ```
 
-提取器只保留 `ASR_REPRO`、`SpeechRecognition`、录音服务、JSAR 和 InkView 等候选行，自动把设备序列号替换为 `<device-serial>`，把 `/Users/...` 本机路径替换为 `<local-path>`，并拒绝覆盖已有公开证据。
+提取器只保留 `ASR_REPRO`、`SpeechRecognition`、录音服务、JSAR 和 InkView 等候选行，自动把设备序列号替换为 `<device-serial>`，把 macOS 用户目录下的本机绝对路径替换为 `<local-path>`，并拒绝覆盖已有公开证据。
 
 自动筛选不是隐私审查，也不能判断问题已复现。
 

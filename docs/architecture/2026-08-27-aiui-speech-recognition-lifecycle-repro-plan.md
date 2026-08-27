@@ -615,7 +615,7 @@ Run:
 ```bash
 git status --short --branch
 git ls-files evidence/private
-git grep -nE '1901092524000561|/Users/|token|password|secret' -- . ':!docs/architecture/*'
+git grep -nE '<known-device-serial>|<known-local-path>|token|password|secret' -- . ':!docs/architecture/*'
 ```
 
 Expected: worktree clean, no private evidence tracked, no device serial, local absolute path, or credential present in public files.

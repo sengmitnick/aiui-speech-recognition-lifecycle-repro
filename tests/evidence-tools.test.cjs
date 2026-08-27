@@ -13,15 +13,15 @@ test('public extractor keeps relevant lines and redacts device and local identif
   const outputFile = path.join(temporaryRoot, 'public.log');
   fs.mkdirSync(privateDirectory);
   fs.writeFileSync(path.join(privateDirectory, 'device-info.txt'), [
-    'serial=1901092524000561',
+    'serial=TEST-SERIAL-001',
     'model=RG-glasses',
-    'source=/Users/seng/Documents/RokidAIUI/repro',
+    `source=${['', 'Users', 'example-user', 'repro'].join('/')}`,
   ].join('\n'));
   fs.writeFileSync(path.join(privateDirectory, 'logcat-full.log'), [
     '08-27 I JSAR: ASR_REPRO {"event":"onstart"}',
-    '08-27 I SpeechRecognition: targetId=1901092524000561',
+    '08-27 I SpeechRecognition: targetId=TEST-SERIAL-001',
     '08-27 I cxr-service: open AudioRecord',
-    '08-27 I InkView: source=/Users/seng/Documents/RokidAIUI/repro',
+    `08-27 I InkView: source=${['', 'Users', 'example-user', 'repro'].join('/')}`,
     '08-27 I com.bank.app: account notification',
   ].join('\n'));
 
@@ -35,7 +35,7 @@ test('public extractor keeps relevant lines and redacts device and local identif
   assert.match(output, /AudioRecord/);
   assert.match(output, /InkView/);
   assert.doesNotMatch(output, /com\.bank\.app/);
-  assert.doesNotMatch(output, /1901092524000561/);
+  assert.doesNotMatch(output, /TEST-SERIAL-001/);
   assert.match(output, /<device-serial>/);
   assert.doesNotMatch(output, /\/Users\/seng/);
   assert.match(output, /<local-path>/);
